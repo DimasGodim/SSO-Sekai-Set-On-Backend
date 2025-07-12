@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.api.routes import auth
-from app.db.init_db import init_db
+from app.api import auth
+from app.db.init_db import init
 
 app = FastAPI(
     title="Sekai Set On API",
@@ -11,7 +11,7 @@ app = FastAPI(
 # Inisialisasi database 
 @app.on_event("startup")
 def startup_event():
-    init_db()
+    init()
 
 # Router
 app.include_router(auth.router, prefix="/auth", tags=["Auth"])
