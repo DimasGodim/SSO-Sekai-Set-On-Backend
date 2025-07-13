@@ -11,7 +11,7 @@ def init():
     if "users" in existing_tables:
         print("safe")
     else:
-        print("membuat tabel baru")
+        print("create new tabel")
         Base.metadata.create_all(bind=engine)
 
 if __name__ == "__main__":
