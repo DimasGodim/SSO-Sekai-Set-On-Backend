@@ -17,6 +17,10 @@ def startup_event():
     init()
     start_news_fetcher()
 
+@app.get('/test')
+def check():
+    return 'yeah im still alive'
+
 # Router
 app.include_router(auth.router, prefix="/auth", tags=["Autentication"])
 
