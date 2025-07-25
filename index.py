@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 
 from app.api import auth, api_key, user, weather, train, news, tts
 from app.db.init_db import init
@@ -17,9 +18,9 @@ def startup_event():
     init()
     start_news_fetcher()
 
-@app.get('/test')
+@app.get("/test")
 def check():
-    return 'yeah im still alive'
+    return JSONResponse (status_code=200, content={"status": "ok", "message": "yeah im still alive"})
 
 # Router
 app.include_router(auth.router, prefix="/auth", tags=["Autentication"])
