@@ -8,9 +8,7 @@ class Settings(BaseSettings):
     secret_key: str
     algorithm: str
     access_token_expire_minutes: int
-
-    stations: str = "app/static/stations.json"
-
+    
     class Config:
         env_file = ".env"
 
