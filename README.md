@@ -16,3 +16,7 @@ How to emigrate
 How to .env
     copy .env.example to .env
     in .env fill with your own data
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.

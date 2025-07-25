@@ -1,0 +1,427 @@
+[
+    {
+      "name": "Shikoku Metan",
+      "speaker_uuid": "7ffcb7ce-00ec-4bdc-82cd-45a8889e43ff",
+      "styles": [
+        {"name": "Normal", "id": 2, "type": "talk"},
+        {"name": "Amaama", "id": 0, "type": "talk"},
+        {"name": "Tsuntsun", "id": 6, "type": "talk"},
+        {"name": "Sexy", "id": 4, "type": "talk"},
+        {"name": "Sasayaki", "id": 36, "type": "talk"},
+        {"name": "Hisohiso", "id": 37, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "SELF_ONLY"}
+    },
+    {
+      "name": "Zundamon",
+      "speaker_uuid": "388f246b-8c41-4ac1-8e2d-5d79f3ff56d9",
+      "styles": [
+        {"name": "Normal", "id": 3, "type": "talk"},
+        {"name": "Amaama", "id": 1, "type": "talk"},
+        {"name": "Tsuntsun", "id": 7, "type": "talk"},
+        {"name": "Sexy", "id": 5, "type": "talk"},
+        {"name": "Sasayaki", "id": 22, "type": "talk"},
+        {"name": "Hisohiso", "id": 38, "type": "talk"},
+        {"name": "Herohero", "id": 75, "type": "talk"},
+        {"name": "Namidame", "id": 76, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "SELF_ONLY"}
+    },
+    {
+      "name": "Kasukabe Tsumugi",
+      "speaker_uuid": "35b2c544-660e-401e-b503-0e14c635303a",
+      "styles": [
+        {"name": "Normal", "id": 8, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Amabare Hau",
+      "speaker_uuid": "3474ee95-c274-47f9-aa1a-8322163d96f1",
+      "styles": [
+        {"name": "Normal", "id": 10, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Namine Ritsu",
+      "speaker_uuid": "b1a81618-b27b-40d2-b0ea-27a9ad408c4b",
+      "styles": [
+        {"name": "Normal", "id": 9, "type": "talk"},
+        {"name": "Queen", "id": 65, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Kurono Takehiro",
+      "speaker_uuid": "c30dc15a-0992-4f8d-8bb8-ad3b314e6a6f",
+      "styles": [
+        {"name": "Normal", "id": 11, "type": "talk"},
+        {"name": "Yorokobi", "id": 39, "type": "talk"},
+        {"name": "Tsungire", "id": 40, "type": "talk"},
+        {"name": "Kanashimi", "id": 41, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Shirakami Kotarou",
+      "speaker_uuid": "e5020595-5c5d-4e87-b849-270a518d0dcf",
+      "styles": [
+        {"name": "Futsuu", "id": 12, "type": "talk"},
+        {"name": "Waai", "id": 32, "type": "talk"},
+        {"name": "Bikubiku", "id": 33, "type": "talk"},
+        {"name": "Oko", "id": 34, "type": "talk"},
+        {"name": "Bieen", "id": 35, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Aoyama Ryuusei",
+      "speaker_uuid": "4f51116a-d9ee-4516-925d-21f183e2afad",
+      "styles": [
+        {"name": "Normal", "id": 13, "type": "talk"},
+        {"name": "Nekketsu", "id": 81, "type": "talk"},
+        {"name": "Fukigen", "id": 82, "type": "talk"},
+        {"name": "Yorokobi", "id": 83, "type": "talk"},
+        {"name": "Shittori", "id": 84, "type": "talk"},
+        {"name": "Kanashimi", "id": 85, "type": "talk"},
+        {"name": "Sasayaki", "id": 86, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Meimu Himari",
+      "speaker_uuid": "8eaad775-3119-417e-8cf4-2a10bfd592c8",
+      "styles": [
+        {"name": "Normal", "id": 14, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Kyuushuu Sora",
+      "speaker_uuid": "481fb609-6446-4870-9f46-90c4dd623403",
+      "styles": [
+        {"name": "Normal", "id": 16, "type": "talk"},
+        {"name": "Amaama", "id": 15, "type": "talk"},
+        {"name": "Tsuntsun", "id": 18, "type": "talk"},
+        {"name": "Sexy", "id": 17, "type": "talk"},
+        {"name": "Sasayaki", "id": 19, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "SELF_ONLY"}
+    },
+    {
+      "name": "Mochi-ko-san",
+      "speaker_uuid": "9f3ee141-26ad-437e-97bd-d22298d02ad2",
+      "styles": [
+        {"name": "Normal", "id": 20, "type": "talk"},
+        {"name": "Sexy/Anko", "id": 66, "type": "talk"},
+        {"name": "Naki", "id": 77, "type": "talk"},
+        {"name": "Ikari", "id": 78, "type": "talk"},
+        {"name": "Yorokobi", "id": 79, "type": "talk"},
+        {"name": "Nonbiri", "id": 80, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "SELF_ONLY"}
+    },
+    {
+      "name": "Kensaki Mesuo",
+      "speaker_uuid": "1a17ca16-7ee5-4ea5-b191-2f02ace24d21",
+      "styles": [
+        {"name": "Normal", "id": 21, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "WhiteCUL",
+      "speaker_uuid": "67d5d8da-acd7-4207-bb10-b5542d3a663b",
+      "styles": [
+        {"name": "Normal", "id": 23, "type": "talk"},
+        {"name": "Tanoshii", "id": 24, "type": "talk"},
+        {"name": "Kanashii", "id": 25, "type": "talk"},
+        {"name": "Bieen", "id": 26, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Ushirogi",
+      "speaker_uuid": "0f56c2f2-644c-49c9-8989-94e11f7129d0",
+      "styles": [
+        {"name": "Ningen ver.", "id": 27, "type": "talk"},
+        {"name": "Nuigurumi ver.", "id": 28, "type": "talk"},
+        {"name": "Ningen (Ikari) ver.", "id": 87, "type": "talk"},
+        {"name": "Oni ver.", "id": 88, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "No.7",
+      "speaker_uuid": "044830d2-f23b-44d6-ac0d-b5d733caa900",
+      "styles": [
+        {"name": "Normal", "id": 29, "type": "talk"},
+        {"name": "Announce", "id": 30, "type": "talk"},
+        {"name": "Yomikikase", "id": 31, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Chibishiki Jii",
+      "speaker_uuid": "468b8e94-9da4-4f7a-8715-a22a48844f9e",
+      "styles": [
+        {"name": "Normal", "id": 42, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Ouka Miko",
+      "speaker_uuid": "0693554c-338e-4790-8982-b9c6d476dc69",
+      "styles": [
+        {"name": "Normal", "id": 43, "type": "talk"},
+        {"name": "Dainishinkeitai", "id": 44, "type": "talk"},
+        {"name": "Loli", "id": 45, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Sayo/SAYO",
+      "speaker_uuid": "a8cc6d22-aad0-4ab8-bf1e-2f843924164a",
+      "styles": [
+        {"name": "Normal", "id": 46, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Nurse Robo Type T",
+      "speaker_uuid": "882a636f-3bac-431a-966d-c5e6bba9f949",
+      "styles": [
+        {"name": "Normal", "id": 47, "type": "talk"},
+        {"name": "Rakuraku", "id": 48, "type": "talk"},
+        {"name": "Kyoufu", "id": 49, "type": "talk"},
+        {"name": "Naishobanashi", "id": 50, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "†Seikishi Kouzakura†",
+      "speaker_uuid": "471e39d2-fb11-4c8c-8d89-4b322d2498e0",
+      "styles": [
+        {"name": "Normal", "id": 51, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Jakematsu Shuji",
+      "speaker_uuid": "0acebdee-a4a5-4e12-a695-e19609728e30",
+      "styles": [
+        {"name": "Normal", "id": 52, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Kirigashima Sorin",
+      "speaker_uuid": "7d1e7ba7-f957-40e5-a3fc-da49f769ab65",
+      "styles": [
+        {"name": "Normal", "id": 53, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Haruka Nana",
+      "speaker_uuid": "ba5d2428-f7e0-4c20-ac41-9dd56e9178b4",
+      "styles": [
+        {"name": "Normal", "id": 54, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Nekotsukai Aru",
+      "speaker_uuid": "00a5c10c-d3bd-459f-83fd-43180b521a44",
+      "styles": [
+        {"name": "Normal", "id": 55, "type": "talk"},
+        {"name": "Ochitsuki", "id": 56, "type": "talk"},
+        {"name": "Ukiuki", "id": 57, "type": "talk"},
+        {"name": "Tsuyotsuyo", "id": 110, "type": "talk"},
+        {"name": "Herohero", "id": 111, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Nekotsukai Bii",
+      "speaker_uuid": "c20a2254-0349-4470-9fc8-e5c0f8cf3404",
+      "styles": [
+        {"name": "Normal", "id": 58, "type": "talk"},
+        {"name": "Ochitsuki", "id": 59, "type": "talk"},
+        {"name": "Hitomishiri", "id": 60, "type": "talk"},
+        {"name": "Tsuyotsuyo", "id": 112, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Chuugoku Usagi",
+      "speaker_uuid": "1f18ffc3-47ea-4ce0-9829-0576d03a7ec8",
+      "styles": [
+        {"name": "Normal", "id": 61, "type": "talk"},
+        {"name": "Odoroki", "id": 62, "type": "talk"},
+        {"name": "Kowagari", "id": 63, "type": "talk"},
+        {"name": "Herohero", "id": 64, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "SELF_ONLY"}
+    },
+    {
+      "name": "Kurita Maron",
+      "speaker_uuid": "04dbd989-32d0-40b4-9e71-17c920f2a8a9",
+      "styles": [
+        {"name": "Normal", "id": 67, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Aieru-tan",
+      "speaker_uuid": "dda44ade-5f9c-4a3a-9d2c-2a976c7476d9",
+      "styles": [
+        {"name": "Normal", "id": 68, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Manbetsu Hanamaru",
+      "speaker_uuid": "287aa49f-e56b-4530-a469-855776c84a8d",
+      "styles": [
+        {"name": "Normal", "id": 69, "type": "talk"},
+        {"name": "Genki", "id": 70, "type": "talk"},
+        {"name": "Sasayaki", "id": 71, "type": "talk"},
+        {"name": "Burikko", "id": 72, "type": "talk"},
+        {"name": "Boy", "id": 73, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Kotoei Nia",
+      "speaker_uuid": "97a4af4b-086e-4efd-b125-7ae2da85e697",
+      "styles": [
+        {"name": "Normal", "id": 74, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Voidoll",
+      "speaker_uuid": "0ebe2c7d-96f3-4f0e-a2e3-ae13fe27c403",
+      "styles": [
+        {"name": "Normal", "id": 89, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "NOTHING"}
+    },
+    {
+      "name": "Zonko",
+      "speaker_uuid": "0156da66-4300-474a-a398-49eb2e8dd853",
+      "styles": [
+        {"name": "Normal", "id": 90, "type": "talk"},
+        {"name": "Teiketsuatsu", "id": 91, "type": "talk"},
+        {"name": "Kakusei", "id": 92, "type": "talk"},
+        {"name": "Jikkyoufuu", "id": 93, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "SELF_ONLY"}
+    },
+    {
+      "name": "Chuubu Tsurugi",
+      "speaker_uuid": "4614a7de-9829-465d-9791-97eb8a5f9b86",
+      "styles": [
+        {"name": "Normal", "id": 94, "type": "talk"},
+        {"name": "Ikari", "id": 95, "type": "talk"},
+        {"name": "Hisohiso", "id": 96, "type": "talk"},
+        {"name": "Odoodo", "id": 97, "type": "talk"},
+        {"name": "Zetsubou to Haiboku", "id": 98, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "SELF_ONLY"}
+    },
+    {
+      "name": "Rito",
+      "speaker_uuid": "3b91e034-e028-4acb-a08d-fbdcd207ea63",
+      "styles": [
+        {"name": "Normal", "id": 99, "type": "talk"},
+        {"name": "Serious", "id": 101, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Kurosawa Saehaku",
+      "speaker_uuid": "0b466290-f9b6-4718-8d37-6c0c81e824ac",
+      "styles": [
+        {"name": "Normal", "id": 100, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Yuurei-chan",
+      "speaker_uuid": "462cd6b4-c088-42b0-b357-3816e24f112e",
+      "styles": [
+        {"name": "Normal", "id": 102, "type": "talk"},
+        {"name": "Amaama", "id": 103, "type": "talk"},
+        {"name": "Kanashimi", "id": 104, "type": "talk"},
+        {"name": "Sasayaki", "id": 105, "type": "talk"},
+        {"name": "Tsukumo-chan", "id": 106, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "ALL"}
+    },
+    {
+      "name": "Touhoku Zunko",
+      "speaker_uuid": "80802b2d-8c75-4429-978b-515105017010",
+      "styles": [
+        {"name": "Normal", "id": 107, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "SELF_ONLY"}
+    },
+    {
+      "name": "Touhoku Kiritan",
+      "speaker_uuid": "1bd6b32b-d650-4072-bbe5-1d0ef4aaa28b",
+      "styles": [
+        {"name": "Normal", "id": 108, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "SELF_ONLY"}
+    },
+    {
+      "name": "Touhoku Itako",
+      "speaker_uuid": "ab4c31a3-8769-422a-b412-708f5ae637e8",
+      "styles": [
+        {"name": "Normal", "id": 109, "type": "talk"}
+      ],
+      "version": "0.15.9",
+      "supported_features": {"permitted_synthesis_morphing": "SELF_ONLY"}
+    }
+  ]

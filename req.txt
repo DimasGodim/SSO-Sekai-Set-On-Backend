@@ -15,3 +15,10 @@ python-jose[cryptography]
 email-validator
 
 httpx
+
+feedparser
+requests
+bs4
+apscheduler
+
+UUID
