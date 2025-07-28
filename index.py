@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import auth, api_key, user, weather, train, news, tts
 from app.db.init_db import init
@@ -10,6 +11,14 @@ app = FastAPI(
     title="Sekai Set On API",
     description="EZ Intergration with japanese platform (I HATE LOCK REGION) ",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Inisialisasi database 
