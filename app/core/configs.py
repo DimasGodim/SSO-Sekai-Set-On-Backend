@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings
+from typing import List
 import os
 
 class Settings(BaseSettings):
@@ -8,6 +9,7 @@ class Settings(BaseSettings):
     secret_key: str
     algorithm: str
     access_token_expire_minutes: int
+    origins: List[str] = []
     
     class Config:
         env_file = ".env"

@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import auth, api_key, user, weather, train, news, tts
+from app.core.configs import config
 from app.db.init_db import init
 from app.service.nhk import start_news_fetcher
 from app.middleware.api_logger import APILogMiddleware
@@ -15,7 +16,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=config.origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
