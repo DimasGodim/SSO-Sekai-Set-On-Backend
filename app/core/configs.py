@@ -9,9 +9,16 @@ class Settings(BaseSettings):
     secret_key: str
     algorithm: str
     access_token_expire_minutes: int
-    origins: List[str] = []
+    origins: str = ""
     
     class Config:
         env_file = ".env"
+    
+    @property
+    def origins_list(self) -> List[str]:
+        """Convert CSV string to list"""
+        if self.origins:
+            return [origin.strip() for origin in self.origins.split(",")]
+        return []
 
 config = Settings()
