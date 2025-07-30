@@ -22,6 +22,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+print(config.origins_list)
+
 # Inisialisasi database 
 @app.on_event("startup")
 def startup_event():
