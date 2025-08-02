@@ -18,10 +18,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=config.origins_list,
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
 )
-
 print(config.origins_list)
 
 # Inisialisasi database 

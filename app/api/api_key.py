@@ -1,18 +1,23 @@
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import JSONResponse
+
 from sqlalchemy.orm import Session
+
 from app.db.database import get_db
 from app.core.deps import get_current_user
 from app.db.models import APIKey, user, APIUsageLog
 from app.service.mail import send_api_key_created_email
+from app.schema import ApikeyCreate
+
 from datetime import datetime
+
 import secrets
 
 router = APIRouter()
 
 @router.post("/create")
 def create_api_key(
-    title: str = None,
+    data: ApikeyCreate,
     db: Session = Depends(get_db),
     current_user: user = Depends(get_current_user)
 ):
@@ -25,17 +30,20 @@ def create_api_key(
         key=key,
         user_id=current_user.id,
         sequence=sequence_number,
-        title=title
+        title=data.title,
+        detail=data.detail
     )
     db.add(new_key)
     db.commit()
     db.refresh(new_key)
     
-    send_api_key_created_email(
+    if not send_api_key_created_email(
         email=current_user.email,
-        title=title,
+        title=data.title,
         created_at=created_time
-    )
+    ):
+        raise HTTPException(status_code=500, detail="An error occurred while sending your API keys data to mail.")
+
 
     return JSONResponse(
         status_code=201,
@@ -61,6 +69,7 @@ def list_api_keys(current_user: user = Depends(get_current_user), db: Session = 
                     "identifier": f"{key.user_id}-{key.sequence}",
                     "created_at": key.created_at.isoformat(),
                     "title": key.title,
+                    "detail": key.detail,
                     "usage_count": len(key.usage_logs)
                 }
                 for key in keys
@@ -105,14 +114,18 @@ def get_usage_by_key(
                 "endpoint": log.endpoint,
                 "method": log.method,
                 "status_code": log.status_code,
+                "response_time":log.response_time,
                 "timestamp": log.timestamp.isoformat()
             }
-            for log in key.usage_logs  # pastikan relasi `usage_logs` di model APIKey
+            for log in key.usage_logs
         ]
 
         usage_summary.append({
             "identifier": f"{key.user_id}-{key.sequence}",
-            "title": key.title,  # jika kamu simpan nama/titlenya
+            "title": key.title,
+            "detail": key.detail,
+            "created_at": key.created_at.isoformat(),
+            "expired": key.expired.isoformat() if key.expired else None,
             "total_requests": len(logs),
             "logs": logs
         })

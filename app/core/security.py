@@ -38,4 +38,6 @@ def decode_access_token(token: str):
         return jwt.decode(token, config.secret_key, algorithms=[config.algorithm])
     except JWTError as e:
         print("JWT decode error:", str(e))
-        raise HTTPException(status_code=500, detail=str(e))
+        if str(e) == "JWT decode error: Signature has expired.":
+            return False
+        raise HTTPException(status_code=401, detail="Could not validate credentials")

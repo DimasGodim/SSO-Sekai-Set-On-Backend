@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Text
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Text, Float
 from sqlalchemy.orm import relationship
 
 from datetime import datetime
@@ -42,6 +42,7 @@ class APIKey(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
+    detail = Column(String, nullable=True)
     key = Column(String, unique=True, index=True, nullable=False)
     user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"))
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -57,6 +58,7 @@ class APIUsageLog(Base):
     id = Column(Integer, primary_key=True, index=True)
     api_key_id = Column(Integer, ForeignKey("api_keys.id", ondelete="CASCADE"))
     endpoint = Column(String, nullable=False)
+    response_time = Column(Float, nullable=True)
     method = Column(String, nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow)
     status_code = Column(Integer)

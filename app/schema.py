@@ -18,3 +18,7 @@ class VerificationMail(BaseModel):
 class UpdateProfile(BaseModel):
     nickname: Optional[str] = None
     name: Optional[str] = None
+
+class ApikeyCreate(BaseModel):
+    title: str
+    detail: Optional[str] = None

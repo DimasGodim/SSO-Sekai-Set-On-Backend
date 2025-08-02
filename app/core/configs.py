@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     algorithm: str
     access_token_expire_minutes: int
     origins: str = ""
+    origins_public: str
     
     class Config:
         env_file = ".env"

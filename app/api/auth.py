@@ -40,8 +40,9 @@ def signup(user_data: UserCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
 
-    send_verivication_code(target_email=user_data.email, verification_code=verification_code)
-
+    if not send_verivication_code(target_email=user_data.email, verification_code=verification_code):
+        raise HTTPException(status_code=500, detail="An error occurred while sending your verification code to your email. Please click to resend the verification code.") 
+     
     return JSONResponse(
         status_code=201,
         content={
@@ -117,7 +118,8 @@ def signin(user_data: UserLogin, response: Response, db: Session = Depends(get_d
         httponly=True,
         secure=True,
         samesite="strict",
-        max_age=60 * 60 * 24 * 7  # 7 hari
+        max_age=60 * 60 * 24 * 7,  # 7 hari
+        path="/"
     )
 
     return JSONResponse(
@@ -128,13 +130,11 @@ def signin(user_data: UserLogin, response: Response, db: Session = Depends(get_d
         }
     )
 
-
-
 @router.post("/refresh")
 def refresh_token(request: Request, db: Session = Depends(get_db)):
     refresh_token = request.cookies.get("refresh_token")
     if not refresh_token:
-        raise HTTPException(status_code=401, detail="No refresh token found")
+        raise HTTPException(status_code=404, detail="No refresh token found")
 
     token_obj = db.query(RefreshToken).filter(RefreshToken.token == refresh_token).first()
     if not token_obj:
@@ -149,7 +149,6 @@ def refresh_token(request: Request, db: Session = Depends(get_db)):
             "access_token": new_access_token
         }
     )
-
 
 @router.post("/logout")
 def logout(response: Response, request: Request, db: Session = Depends(get_db)):
