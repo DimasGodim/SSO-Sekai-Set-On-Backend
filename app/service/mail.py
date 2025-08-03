@@ -113,10 +113,10 @@ def send_api_key_created_email(email: str, title: str, created_at: datetime):
                                 <h2 style="margin-top: 0; font-size: 24px; color: #ffffff;">API Key Created Successfully</h2>
                                 <p style="color: #cccccc;">Hello,</p>
                                 <p style="color: #cccccc;">
-                                    Your API key titled <strong style="color:#00ffff;">{ title }</strong> has been created successfully on:
+                                    Your API key titled <strong style="color:#00ffff;">{title}</strong> has been created successfully on:
                                 </p>
                                 <div style="margin: 16px 0; padding: 12px; background-color: #111; border-left: 4px solid #00ffff; border-radius: 4px; font-size: 18px; color: #00ffff;">
-                                    { str(created_at) }
+                                    {str(created_at)}
                                 </div>
                                 <p style="color: #ccc;">
                                     Please keep your API key <strong>secure</strong> and do not share it with anyone.
@@ -137,15 +137,17 @@ def send_api_key_created_email(email: str, title: str, created_at: datetime):
     </body>
     </html>
     """
-
+    
     # Menyusun email
-    msg = MIMEMultipart()
+    msg = MIMEMultipart('alternative')  # Menggunakan 'alternative' untuk multiple content types
     msg["From"] = MY_EMAIL
     msg["To"] = email
     msg["Subject"] = subject
-
-    msg.attach(MIMEText(body, "plain"))
-
+    
+    # Membuat versi HTML
+    html_part = MIMEText(body, "html")  # Ubah dari "plain" ke "html"
+    msg.attach(html_part)
+    
     # Kirim email
     try:
         with smtplib.SMTP(SERVER, PORT) as server:
@@ -155,3 +157,4 @@ def send_api_key_created_email(email: str, title: str, created_at: datetime):
             return True
     except Exception as e:
         print(f"Gagal mengirim email ke {email}: {e}")
+        return False
