@@ -11,7 +11,10 @@ from app.middleware.api_logger import APILogMiddleware
 app = FastAPI(
     title="Sekai Set On API",
     description="EZ Intergration with japanese platform (I HATE LOCK REGION) ",
-    version="1.0.0"
+    version="1.0.0",
+    docs_url=None, 
+    redoc_url=None, 
+    openapi_url=None
 )
 
 app.add_middleware(
