@@ -38,7 +38,7 @@ def request_audio(text: str, speaker_id: int):
 def normalize(text: str) -> str:
     return text.strip().lower()
 
-@router.get('/list')
+@router.get('/list_characters')
 def list_voicevox_characters(
     db: Session = Depends(get_db),
     api_key=Depends(verify_api_key)

@@ -11,7 +11,7 @@ import requests
 
 router = APIRouter()
 
-@router.get("/weather")
+@router.get("/forecast")
 def get_weather(
     city: str = Query(...),
     db: Session = Depends(get_db),
