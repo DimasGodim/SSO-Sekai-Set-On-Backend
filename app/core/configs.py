@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int
     origins: str = ""
     origins_public: str
+    atlas_url: str
     
     class Config:
         env_file = ".env"

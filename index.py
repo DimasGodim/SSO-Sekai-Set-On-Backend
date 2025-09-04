@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import auth, api_key, user, weather, train, news, tts
 from app.core.configs import config
-from app.db.init_db import init
+from app.db.sql.init_db import init
 from app.service.nhk import start_news_fetcher
 from app.middleware.api_logger import APILogMiddleware
 

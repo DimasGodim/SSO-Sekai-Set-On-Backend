@@ -3,8 +3,8 @@ from fastapi.responses import JSONResponse
 
 from sqlalchemy.orm import Session
 
-from app.db.database import get_db
-from app.db.models import News
+from app.db.sql.database import get_db
+from app.db.sql.models import News
 
 from app.service.nhk import fetch_nhk_news
 

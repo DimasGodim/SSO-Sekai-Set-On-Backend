@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
-from app.db.database import get_db
+from app.db.sql.database import get_db
 from app.core.deps import get_current_user
-from app.db.models import user as UserModel
+from app.db.sql.models import user as UserModel
 from app.schema import UpdateProfile
 
 router = APIRouter()
@@ -14,7 +14,7 @@ from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 from sqlalchemy import func, case
-from app.db.models import user, APIKey, APIUsageLog
+from app.db.sql.models import user, APIKey, APIUsageLog
 from app.core.deps import get_current_user, get_db
 
 router = APIRouter()

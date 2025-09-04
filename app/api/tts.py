@@ -1,4 +1,4 @@
-from app.db.database import get_db
+from app.db.sql.database import get_db
 from app.core.deps import verify_api_key
 
 from fastapi import APIRouter, HTTPException, Query, Depends

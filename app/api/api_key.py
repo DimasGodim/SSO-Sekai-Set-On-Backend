@@ -3,9 +3,9 @@ from fastapi.responses import JSONResponse
 
 from sqlalchemy.orm import Session
 
-from app.db.database import get_db
+from app.db.sql.database import get_db
 from app.core.deps import get_current_user
-from app.db.models import APIKey, user, APIUsageLog
+from app.db.sql.models import APIKey, user, APIUsageLog
 from app.service.mail import send_api_key_created_email
 from app.schema import ApikeyCreate
 

@@ -4,6 +4,7 @@ uvicorn[standard]
 sqlalchemy
 alembic
 psycopg2
+pymongo[srv] 
 
 pydantic-settings
 python-dotenv
