@@ -1,20 +1,14 @@
-from fastapi import APIRouter, Depends, HTTPException
-from fastapi.responses import JSONResponse
-from sqlalchemy.orm import Session
-from app.db.sql.database import get_db
-from app.core.deps import get_current_user
-from app.db.sql.models import user as UserModel
-from app.schema import UpdateProfile
-
-router = APIRouter()
-
 from collections import defaultdict
 
 from fastapi import APIRouter, Depends
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTTPException
+
 from sqlalchemy.orm import Session
 from sqlalchemy import func, case
+
+from app.schema import UpdateProfile
 from app.db.sql.models import user, APIKey, APIUsageLog
+
 from app.core.deps import get_current_user, get_db
 
 router = APIRouter()
@@ -142,7 +136,7 @@ def get_current_user_info(
 def update_profile(
     profile: UpdateProfile,
     db: Session = Depends(get_db),
-    current_user: UserModel = Depends(get_current_user)
+    current_user: user = Depends(get_current_user)
 ):
     update_data = profile.dict(exclude_unset=True)
 
@@ -150,9 +144,9 @@ def update_profile(
     if "nickname" in update_data:
         new_nickname = update_data["nickname"]
         if new_nickname != current_user.nickname:
-            existing = db.query(UserModel).filter(
-                UserModel.nickname == new_nickname,
-                UserModel.id != current_user.id
+            existing = db.query(user).filter(
+                user.nickname == new_nickname,
+                user.id != current_user.id
             ).first()
             if existing:
                 raise HTTPException(status_code=400, detail="Nickname already in use")
@@ -182,7 +176,7 @@ def update_profile(
 @router.delete("/delete")
 def delete_account(
     db: Session = Depends(get_db),
-    current_user: UserModel = Depends(get_current_user)
+    current_user: user = Depends(get_current_user)
 ):
     db.delete(current_user)
     db.commit()

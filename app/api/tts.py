@@ -1,8 +1,9 @@
-from app.db.sql.database import get_db
+from app.db.sql.client import get_db
 from app.core.deps import verify_api_key
 
 from fastapi import APIRouter, HTTPException, Query, Depends
 from fastapi.responses import JSONResponse
+
 from sqlalchemy.orm import Session
 
 from pathlib import Path

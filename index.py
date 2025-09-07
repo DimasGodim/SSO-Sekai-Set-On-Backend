@@ -2,11 +2,22 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
+from contextlib import asynccontextmanager
+
 from app.api import auth, api_key, user, weather, train, news, tts
+
 from app.core.configs import config
+
 from app.db.sql.init_db import init
+
 from app.service.nhk import start_news_fetcher
+
 from app.middleware.api_logger import APILogMiddleware
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init()
+    start_news_fetcher()
 
 app = FastAPI(
     title="Sekai Set On API",
@@ -14,7 +25,8 @@ app = FastAPI(
     version="1.0.0",
     docs_url=None, 
     redoc_url=None, 
-    openapi_url=None
+    openapi_url=None,
+    lifespan=lifespan
 )
 
 app.add_middleware(
@@ -24,13 +36,6 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
 )
-print(config.origins_list)
-
-# Inisialisasi database 
-@app.on_event("startup")
-def startup_event():
-    init()
-    start_news_fetcher()
 
 @app.get("/test")
 def check():

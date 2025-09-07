@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import or_
 
 from app.db.sql.models import user, RefreshToken
-from app.db.sql.database import get_db
+from app.db.sql.client import get_db
 
 from app.core.security import hash_password, verify_password, create_access_token
 

@@ -1,7 +1,7 @@
 from starlette.middleware.base import BaseHTTPMiddleware
 from fastapi import Request, Response
-from app.db.database import SessionLocal
-from app.db.models import APIKey, APIUsageLog
+from app.db.sql.client import SessionLocal
+from app.db.sql.models import APIKey, APIUsageLog
 from datetime import datetime
 import time
 import logging

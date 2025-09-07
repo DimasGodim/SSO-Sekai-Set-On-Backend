@@ -1,7 +1,10 @@
-from fastapi import Request, HTTPException, Depends, Header
-from app.db.sql.database import get_db
+from fastapi import Request, HTTPException, Depends
+
+from app.db.sql.client import get_db
 from app.db.sql.models import APIKey, user
+
 from app.core.security import decode_access_token
+
 from sqlalchemy.orm import Session
 from datetime import datetime
 

@@ -2,7 +2,8 @@ from fastapi import APIRouter, Query, HTTPException, Depends
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 
-from app.db.sql.database import get_db
+from app.db.sql.client import get_db
+
 from app.core.deps import verify_api_key
 
 import requests
@@ -12,7 +13,6 @@ import json
 from pathlib import Path
 from datetime import date as date_parameter, time as time_parameter
 from bs4 import BeautifulSoup
-from urllib.parse import quote
 
 router = APIRouter()
 

@@ -6,7 +6,7 @@ from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 
 from app.db.sql.models import News
-from app.db.sql.database import SessionLocal
+from app.db.sql.client import SessionLocal
 
 def get_full_nhk_content(link: str) -> str:
     try:

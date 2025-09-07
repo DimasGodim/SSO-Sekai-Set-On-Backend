@@ -12,6 +12,8 @@ class Settings(BaseSettings):
     origins: str = ""
     origins_public: str
     atlas_url: str
+    atlas_db_name: str
+    mode_db: str
     
     class Config:
         env_file = ".env"
