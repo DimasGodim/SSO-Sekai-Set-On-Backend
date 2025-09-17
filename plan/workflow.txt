@@ -1,0 +1,104 @@
+api all request stamdar
+    header
+        access_token: sub email exp utc
+        api_key: exp utc 256bit
+    
+    schema request post update
+        schema
+
+    query request get delete
+
+    shcema response
+        standar success
+        error handle HTTPException
+
+
+database
+    double database
+        standar email primary_key
+
+    action
+        depends mode_db
+
+
+autentikasi
+    signup
+        act signup
+            data schema signup and verification code
+            response user basic data
+
+        send mail
+
+        response message and user basic data
+
+    verification
+        act verification
+            data schema verification
+            response user basic data
+        
+        response message and user basic data
+
+    signin
+
+        act cek_user
+            identification str
+            return pbj
+        
+        security verify password
+            hash password and input password
+            pass
+
+        make refersh token with secret token
+        
+        act save refersh token
+            token and email
+            pass
+
+        set refersh token to cookie
+
+        response standar user data and message
+    
+refers_token
+    refersh
+        act cek refersh token
+            email and token
+        
+        make refersh
+
+user manage
+    detail 
+        security verification access token
+            access_token
+            response email
+    
+        act get user
+            email
+            response eamil
+
+        act get information api key 
+            email 
+            response detail api key 
+
+        response user basic data and api key detail
+
+    update
+        security verification access token
+            access_token
+            response email
+
+        act update user
+            email dan data schema
+            response user basic data
+
+        response user basic data
+
+    delete 
+        security verification access token
+            access_token
+            response email
+        
+        act delete user
+            email
+        
+        response user basic data + message
+        

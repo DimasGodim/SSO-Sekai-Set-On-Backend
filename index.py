@@ -4,28 +4,34 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from contextlib import asynccontextmanager
 
-from app.api import auth, api_key, user, weather, train, news, tts
+from configs import config
 
-from app.core.configs import config
-
-from app.db.sql.init_db import init
+from app.middleware.logger import APILogMiddleware
 
 from app.service.nhk import start_news_fetcher
 
-from app.middleware.api_logger import APILogMiddleware
+from data.db.sql.init import init
+
+from data.db.mongo.client import close_client
+
+from app.api.router import router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    init()
-    start_news_fetcher()
+    if config.mode_db == "sql":
+        await init()
+
+    await start_news_fetcher()
+    
+    yield
+    if config.mode_db == "mongo":
+        await close_client()
+
 
 app = FastAPI(
     title="Sekai Set On API",
     description="EZ Intergration with japanese platform (I HATE LOCK REGION) ",
     version="1.0.0",
-    docs_url=None, 
-    redoc_url=None, 
-    openapi_url=None,
     lifespan=lifespan
 )
 
@@ -36,25 +42,10 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
 )
+app.add_middleware(APILogMiddleware)
 
-@app.get("/test")
+@app.get("/")
 def check():
     return JSONResponse (status_code=200, content={"status": "ok", "message": "yeah im still alive"})
 
-# Router
-app.include_router(auth.router, prefix="/auth", tags=["Autentication"])
-
-app.include_router(news.router, prefix="/news", tags=["Japanese News"])
-
-app.include_router(tts.router, prefix='/tts', tags=['Text To Sound'])
-
-app.include_router(weather.router, prefix="/weather", tags=["Weather Information"])
-
-app.include_router(train.router, prefix="/train", tags=["Train Information"])
-
-app.include_router(api_key.router, prefix="/api-key", tags=["Api Key"])
-
-app.include_router(user.router, prefix="/user", tags=["User"])
-
-# Middleware
-app.add_middleware(APILogMiddleware)
+app.include_router(router)

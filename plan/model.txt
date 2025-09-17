@@ -1,0 +1,64 @@
+/app
+    /api
+        router
+
+        /user
+            auth
+            manage
+            apikey
+        
+        /service
+            news
+            weather
+            train
+            tts
+
+    /service
+        nhk
+        mail
+
+    /middleware
+        logger
+    
+    /schema
+        /user
+
+        /error
+        
+        /service
+
+    /deps
+        security
+        
+        service
+
+/data
+    /static
+        random
+        
+    /act
+        base
+        sql
+        mongo
+    
+    /sql
+        client
+        models
+
+    /mongodb
+        client
+        models
+
+/migrations | for sql
+
+/plan
+    model
+
+index
+configs
+
+env
+docker-compose.yaml
+alembic.ini
+license
+etc

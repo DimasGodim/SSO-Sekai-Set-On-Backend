@@ -3,8 +3,11 @@ uvicorn[standard]
 
 sqlalchemy
 alembic
+asyncpg
+aiomysql
 psycopg2
 pymongo[srv] 
+asyncpg
 
 pydantic-settings
 python-dotenv

@@ -2,7 +2,8 @@ import smtplib
 from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from app.core.configs import config  
+from configs import config  
+from fastapi import HTTPException
 
 SERVER = 'smtp.gmail.com'
 PORT = 587
@@ -78,14 +79,12 @@ def send_verivication_code(target_email: str, verification_code: str):
         server.starttls()
         server.login(MY_EMAIL, MY_PASSWORD)
         server.sendmail(sender_email, target_email, msg.as_string())
-        return True
     except Exception as e:
-        print('Terjadi kesalahan:', str(e))
-        return str(e)
+        raise HTTPException(status_code=500, detail=f"Send email failed: {e}")
     finally:
         server.quit()
 
-def send_api_key_created_email(email: str, title: str, created_at: datetime):
+def send_api_key_created_email(email: str, title: str, key: str, created_at: datetime):
     # Membuat subject dan isi email
     subject = "API Key Created Successfully"
     body = f"""
@@ -113,11 +112,14 @@ def send_api_key_created_email(email: str, title: str, created_at: datetime):
                                 <h2 style="margin-top: 0; font-size: 24px; color: #ffffff;">API Key Created Successfully</h2>
                                 <p style="color: #cccccc;">Hello,</p>
                                 <p style="color: #cccccc;">
-                                    Your API key titled <strong style="color:#00ffff;">{title}</strong> has been created successfully on:
+                                    Your API key titled <strong style="color:#00ffff;">{title}</strong> has been created successfully.
                                 </p>
                                 <div style="margin: 16px 0; padding: 12px; background-color: #111; border-left: 4px solid #00ffff; border-radius: 4px; font-size: 18px; color: #00ffff;">
-                                    {str(created_at)}
+                                    {key}
                                 </div>
+                                <p style="color: #ccc; font-size: 14px;">
+                                    Created at: {str(created_at)}
+                                </p>
                                 <p style="color: #ccc;">
                                     Please keep your API key <strong>secure</strong> and do not share it with anyone.
                                 </p>
@@ -139,13 +141,12 @@ def send_api_key_created_email(email: str, title: str, created_at: datetime):
     """
     
     # Menyusun email
-    msg = MIMEMultipart('alternative')  # Menggunakan 'alternative' untuk multiple content types
+    msg = MIMEMultipart('alternative')
     msg["From"] = MY_EMAIL
     msg["To"] = email
     msg["Subject"] = subject
     
-    # Membuat versi HTML
-    html_part = MIMEText(body, "html")  # Ubah dari "plain" ke "html"
+    html_part = MIMEText(body, "html")
     msg.attach(html_part)
     
     # Kirim email

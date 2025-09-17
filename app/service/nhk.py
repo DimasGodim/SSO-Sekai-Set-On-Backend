@@ -5,9 +5,8 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from app.db.sql.models import News
-from app.db.sql.client import SessionLocal
-
+from data.act.base import save_news, news_list
+from data.db.mongo.models import News
 def get_full_nhk_content(link: str) -> str:
     try:
         response = requests.get(link, timeout=5)
@@ -23,14 +22,12 @@ def get_full_nhk_content(link: str) -> str:
     paragraphs = container.find_all("p")
     return "\n".join(p.get_text(strip=True) for p in paragraphs if p.text).strip()
 
-def fetch_nhk_news(db):
+async def fetch_nhk_news():
     rss_url = "https://www3.nhk.or.jp/rss/news/cat0.xml"
     feed = feedparser.parse(rss_url)
 
-    # Ambil semua link yang sudah ada di DB sekali saja (efisien)
-    existing_links = {
-        row.link for row in db.query(News.link).all()
-    }
+    news = await news_list()
+    existing_links = {row["link"] for row in news}
 
     new_entries = 0
 
@@ -40,37 +37,31 @@ def fetch_nhk_news(db):
 
         full_content = get_full_nhk_content(entry.link)
 
-        news = News(
-            title=entry.title,
-            link=entry.link,
-            published_at=datetime(*entry.published_parsed[:6]),
-            summary=entry.get("summary", ""),
-            content=full_content,
-            source="NHK"
-        )
+        news = {
+            "title": entry.title,
+            "link": entry.link,
+            "published_at": datetime(*entry.published_parsed[:6]),
+            "summary": entry.get("summary", ""),
+            "content": full_content,
+        }
 
-        db.add(news)
+        await save_news(data=news)
         new_entries += 1
 
     if new_entries:
-        db.commit()
         print(f"{new_entries} berita baru berhasil ditambahkan.")
     else:
         print("ℹTidak ada berita baru.")
 
 
 scheduler = BackgroundScheduler()
-def start_news_fetcher():
-    def job():
-        db = SessionLocal()
-        try:
+async def start_news_fetcher():
+    async def job():
             print("[Scheduler] Fetching NHK News...")
-            fetch_nhk_news(db)
-        finally:
-            db.close()
+            await fetch_nhk_news()
 
-    job()
+    await job()
     
     scheduler.add_job(job, "interval", hours=2)
     scheduler.start()
-    print(f"[{datetime.now().isoformat()}] 6NHK news updated.")
+    print(f"[{datetime.now().isoformat()}] NHK news updated.")
